@@ -1,3 +1,29 @@
 .month {
-    margin-top: 100px;
+    margin-top: 50px;
+
+    .days-container {
+        max-width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+    .buttons-date-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 20px;
+   
+    }
+
+
+
+    .date-actual {
+        font-weight: bold;
+    
+    }
 }
+
+
+
+
+

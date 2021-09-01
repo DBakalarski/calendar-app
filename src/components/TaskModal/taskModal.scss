@@ -1,0 +1,46 @@
+.modal {
+    left: 0;
+    top:0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;;
+    justify-content: center;
+    background-color: rgba(35, 35,35, 0.5);
+
+    .modal-content {
+        background-color: #fff;
+        padding: 70px;
+        position: relative;
+
+    }
+    
+    .close-modal {
+        &::before {
+            content: 'x';
+            position: absolute;
+            right:10px;
+            top: 5px;
+            cursor: pointer;
+            font-size: 40px;
+        }
+
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-task-value,
+    .form-task-date 
+     {
+        margin-bottom: 30px;
+        input {
+            margin-left: 10px;
+        }
+    }
+
+}
+
