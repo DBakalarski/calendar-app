@@ -1,0 +1,19 @@
+.single-task {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 10px;
+  .remove-task {
+    cursor: pointer;
+    color: #dc143c;
+    border-color: #dc143c;
+  }
+  .name {
+    flex-grow: 1;
+  }
+
+  .date {
+    padding-right: 20px;
+  }
+}

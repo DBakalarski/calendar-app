@@ -1,0 +1,25 @@
+.tasks-container {
+  padding: 15px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  left: 100px;
+  margin-top: 50px;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-130%);
+  }
+
+  .title {
+    padding-bottom: 10px;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+  }
+}

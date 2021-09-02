@@ -3,8 +3,8 @@ import tasksReducer from "./tasks.reducer";
 import modalReducer from "./modal.reducer";
 
 const rootReducers = combineReducers({
-    tasks: tasksReducer,
-    modal: modalReducer
-})
+  tasks: tasksReducer,
+  modal: modalReducer,
+});
 
 export default rootReducers;
