@@ -6,14 +6,15 @@ import {
 } from "react-router-dom";
 import { getDaysInMonth, format } from 'date-fns'
 import SingleDay from '../SingleDay';
+import { directionType } from '../../enums/enums';
 
 const Month = () => {
-    interface IUseParams {
+    interface IDateUseParams {
         monthUrl: string,
         yearUrl: string
     }
 
-    let { monthUrl, yearUrl }: IUseParams = useParams();
+    let { monthUrl, yearUrl }: IDateUseParams = useParams();
     const history = useHistory();
     const [date, setDate] = useState({
         month: Number(monthUrl),
@@ -31,41 +32,30 @@ const Month = () => {
     ));
 
 
-    const previousMonth = () => {
+    const changeMonth = (direction: directionType) => {
         let newMonth = month;
         let newYear = year;
-        if (newMonth === 1) {
-            newMonth = 12
-            newYear--
-        } else {
-            newMonth--
+        if (direction === directionType.NEXT) {
+            if (newMonth === 12) {
+                newMonth = 1
+                newYear++
+            } else {
+                newMonth++
+            }
+        } else if (direction === directionType.PREVIOUS) {
+            if (newMonth === 1) {
+                newMonth = 12
+                newYear--
+            } else {
+                newMonth--
+            }
         }
-
         setDate({
             month: newMonth,
             year: newYear,
         })
 
         history.push(`/month/${newMonth}/${newYear}`)
-    }
-
-    const nextMonth = () => {
-        let newMonth = month;
-        let newYear = year;
-        if (newMonth === 12) {
-            newMonth = 1
-            newYear++
-        } else {
-            newMonth++
-        }
-
-        setDate({
-            month: newMonth,
-            year: newYear
-
-        })
-
-        history.push(`/month/${month}/${year}`)
     }
 
     const formatDate = (day: number) => {
@@ -76,11 +66,11 @@ const Month = () => {
     return (
         <div className="month">
             <div className="buttons-date-container">
-                <button className="button previous" onClick={previousMonth}>
+                <button className="button previous" onClick={() => changeMonth(directionType.PREVIOUS)}>
                     previous month
                 </button>
                 <div className="date-actual">{date.month} {date.year}</div>
-                <button className="button next" onClick={nextMonth}>
+                <button className="button next" onClick={() => changeMonth(directionType.NEXT)}>
                     next month
                 </button>
             </div>

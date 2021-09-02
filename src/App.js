@@ -2,7 +2,7 @@
 import './App.css';
 import Month from './components/Month';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect
@@ -20,6 +20,8 @@ const App = () => {
   return (
     <div className="app" >
       Calendar App
+      {/* ONLY FOR GH PAGES */}
+      {/* <Router basename={process.env.PUBLIC_URL}> */}
       <Router>
         <Switch>
           <Route path="/month/:monthUrl/:yearUrl" >
@@ -31,7 +33,7 @@ const App = () => {
           </Route>
         </Switch>
       </Router>
-      <button class="button add-task" onClick={() => dispatch(openModal())}>Add Task</button>
+      <button className="button add-task" onClick={() => dispatch(openModal())}>Add Task</button>
       {modalVisible ? <TaskModal /> : null}
 
     </div>

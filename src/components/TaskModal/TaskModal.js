@@ -24,7 +24,10 @@ const TaskModal: React.FC<TaskModalProps> = () => {
 
     const handleSubmit = (e: React.FormEvent<TasksFormElement>) => {
         e.preventDefault();
-        const inputDate = new Date(task.date)
+        if (!task.value || !task.date) {
+            alert('Fill tasks values')
+            return
+        }
         handleCloseModal();
         dispatch(addTask(task.value, task.date, uuidv4()))
     }
@@ -40,31 +43,30 @@ const TaskModal: React.FC<TaskModalProps> = () => {
                     <div onClick={handleCloseModal} className="close-modal"> </div>
                     <form class="form" onSubmit={handleSubmit}>
                         <div className="form-task-value">
-                            <label>
-                                Task
-                                <input
-                                    type="text"
-                                    value={task.value}
-                                    onChange={e => setTask(prevState => ({
-                                        ...prevState,
-                                        value: e.target.value
-                                    }))}
-                                />
-                            </label>
+                            <label for="task-value">Task</label>
+                            <input
+                                id="task-value"
+                                type="text"
+                                value={task.value}
+                                onChange={e => setTask(prevState => ({
+                                    ...prevState,
+                                    value: e.target.value
+                                }))}
+                            />
+
                         </div>
                         <div className="form-task-date">
-                            <label>
-                                Date
-                                <input
-                                    type="date"
-                                    onChange={e => setTask(prevState => ({
-                                        ...prevState,
-                                        date: e.target.value
-                                    }))}
-                                />
-                            </label>
+                            <label for="task-date">Date</label>
+                            <input
+                                id="task-date"
+                                type="date"
+                                onChange={e => setTask(prevState => ({
+                                    ...prevState,
+                                    date: e.target.value
+                                }))}
+                            />
                         </div>
-                        <button className="button submit" type="submit" > Submit</button>
+                        <button className="button submit" type="submit" >Add Task</button>
                     </form>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { actionTaskType } from "../../enums/actionEnum"
+import { actionTaskType } from "../../enums/enums"
 
 export const addTask = (value: string, date: string, key: string) => {
     return {

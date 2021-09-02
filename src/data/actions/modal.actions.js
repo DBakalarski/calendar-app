@@ -1,4 +1,4 @@
-import { modalVisibleType } from "../../enums/modalEnum"
+import { modalVisibleType } from "../../enums/enums"
 
 export const openModal = () => {
     return {

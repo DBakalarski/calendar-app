@@ -1,4 +1,4 @@
-import { actionTaskType } from "../../enums/actionEnum"
+import { actionTaskType } from "../../enums/enums"
 
 interface ITaskReducerActions {
     type: actionTaskType,
