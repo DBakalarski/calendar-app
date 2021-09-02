@@ -2,18 +2,21 @@
 import './App.css';
 import Month from './components/Month';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
   Redirect
 } from "react-router-dom";
-import { format } from 'date-fns';
 import TaskModal from './components/TaskModal';
-import * as React from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { openModal } from './data/actions/modal.actions';
+import TasksBoard from './components/TasksBoard';
+import { actualDate } from './helpers/helpers';
+
+
 
 const App = () => {
+
   const dispatch = useDispatch()
   const { modalVisible } = useSelector(state => state.modal, shallowEqual)
 
@@ -29,10 +32,11 @@ const App = () => {
           </Route>
           <Route exact path="/">
             {/* @Todo get actual month */}
-            <Redirect to="/month/09/2021" />
+            <Redirect to={`/month/${actualDate()}`} />
           </Route>
         </Switch>
       </Router>
+      <TasksBoard />
       <button className="button add-task" onClick={() => dispatch(openModal())}>Add Task</button>
       {modalVisible ? <TaskModal /> : null}
 

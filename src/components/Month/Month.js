@@ -4,9 +4,11 @@ import {
     useParams,
     useHistory
 } from "react-router-dom";
-import { getDaysInMonth, format } from 'date-fns'
+import { getDaysInMonth } from 'date-fns'
 import SingleDay from '../SingleDay';
 import { directionType } from '../../enums/enums';
+import { formatDate } from '../../helpers/helpers'
+
 
 const Month = () => {
     interface IDateUseParams {
@@ -58,10 +60,6 @@ const Month = () => {
         history.push(`/month/${newMonth}/${newYear}`)
     }
 
-    const formatDate = (day: number) => {
-        return format(new Date(year, month - 1, day), 'yyyy-MM-dd');
-    }
-
 
     return (
         <div className="month">
@@ -74,9 +72,8 @@ const Month = () => {
                     next month
                 </button>
             </div>
-
             <div className="days-container">
-                {daysArray.map((item, index) => <SingleDay date={formatDate(item.day)} day={item.day} key={index} />)}
+                {daysArray.map((item, index) => <SingleDay date={formatDate(item.day, month, year)} day={item.day} key={index} />)}
             </div>
         </div>
     );

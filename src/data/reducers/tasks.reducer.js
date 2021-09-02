@@ -16,7 +16,6 @@ const initialState = {
 export const tasksReducer = (state = initialState, action: ITaskReducerActions) => {
     switch (action.type) {
         case actionTaskType.ADD_TASK:
-            console.log(state)
             return {
                 tasks: [...state.tasks, {
                     value: action.payload.value,

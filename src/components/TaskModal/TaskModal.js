@@ -41,9 +41,9 @@ const TaskModal: React.FC<TaskModalProps> = () => {
             <div className="modal">
                 <div className="modal-content">
                     <div onClick={handleCloseModal} className="close-modal"> </div>
-                    <form class="form" onSubmit={handleSubmit}>
+                    <form className="form" onSubmit={handleSubmit}>
                         <div className="form-task-value">
-                            <label for="task-value">Task</label>
+                            <label htmlFor="task-value">Task</label>
                             <input
                                 id="task-value"
                                 type="text"
@@ -56,7 +56,7 @@ const TaskModal: React.FC<TaskModalProps> = () => {
 
                         </div>
                         <div className="form-task-date">
-                            <label for="task-date">Date</label>
+                            <label htmlFor="task-date">Date</label>
                             <input
                                 id="task-date"
                                 type="date"
